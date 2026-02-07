@@ -1,0 +1,40 @@
+{
+    "name": "cxr-language-support",
+    "displayName": "CXR Language Support",
+    "description": "Syntax highlighting and language support for CXR rule files (.cxr)",
+    "version": "0.0.1",
+    "publisher": "ezetgalaxy",
+    "engines": {
+        "vscode": "^1.70.0"
+    },
+    "license": "ISC",
+    "categories": [
+        "Programming Languages"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/shoya-129/cxr"
+    },
+    "contributes": {
+        "languages": [
+            {
+                "id": "cxr",
+                "aliases": [
+                    "CXR",
+                    "cxr"
+                ],
+                "extensions": [
+                    ".cxr"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "cxr",
+                "scopeName": "source.cxr",
+                "path": "./syntaxes/cxr.tmLanguage.json"
+            }
+        ]
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "cxr",
+  "version": "1.0.0",
+  "description": "CXR - Email Rule eXecutor. A safe, deterministic, and explainable rule engine for email filtering.",
+  "type": "module",
+  "publisher": "ezetgalaxy",
+  "author": "Ezet Galaxy",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "email",
+    "rule-engine",
+    "compiler",
+    "automation",
+    "filtering",
+    "cxr"
+  ],
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

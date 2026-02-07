@@ -1,0 +1,82 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "CXR",
+    "scopeName": "source.cxr",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#actions"
+        },
+        {
+            "include": "#fields"
+        },
+        {
+            "include": "#operators"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.double-slash.cxr",
+                    "match": "//.*$"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.cxr",
+                    "match": "\\b(Folder|WHEN|THEN)\\b"
+                }
+            ]
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.logical.cxr",
+                    "match": "\\b(AND|OR|NOT)\\b"
+                },
+                {
+                    "name": "keyword.operator.comparison.cxr",
+                    "match": "\\b(contains|IN)\\b"
+                }
+            ]
+        },
+        "actions": {
+            "patterns": [
+                {
+                    "name": "support.function.action.cxr",
+                    "match": "\\b(move to|remove from|notify|call|remind|mark as read|mark as unread|auto)\\b"
+                }
+            ]
+        },
+        "fields": {
+            "patterns": [
+                {
+                    "name": "variable.language.field.cxr",
+                    "match": "\\b(sender|subject|body)\\b"
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.cxr",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.cxr",
+                    "match": "\\\\."
+                }
+            ]
+        }
+    }
+}

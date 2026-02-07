@@ -1,0 +1,19 @@
+
+# Dependencies
+node_modules/
+
+# Testing & Debugging
+coverage/
+.test_output/
+simple_test.js
+
+# OS Metadata
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env

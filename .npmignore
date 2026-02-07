@@ -1,0 +1,18 @@
+
+# Source files to ignore in package
+.git
+.gitignore
+.npmignore
+
+# Tests and Scripts
+test/
+simple_test.js
+example.js
+
+# Configs
+eslint.config.js
+jest.config.js
+tsconfig.json
+
+# Documentation
+# (Usually we keep README, but maybe ignore raw images or assets if any)

@@ -1,0 +1,5 @@
+Folder External
+
+WHEN sender contains "external"
+THEN move to External
+AND mark as read
