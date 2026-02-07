@@ -1,19 +1,34 @@
 
 # Dependencies
 node_modules/
+package-lock.json
 
-# Testing & Debugging
-coverage/
-.test_output/
-simple_test.js
+# Development
+.vscode/
+.idea/
+*.swp
+*.swo
 
 # OS Metadata
 .DS_Store
 Thumbs.db
 
-# Logs
+# Logs & Debug
+logs/
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+.test_output/
+simple_test.js
 
 # Environment
 .env
+.env.local
+
+# VS Code Extension (don't ignore the built .vsix if we want to distribute it, but ignore intermediate build folders)
+vscode-extension/out/
+vscode-extension/node_modules/

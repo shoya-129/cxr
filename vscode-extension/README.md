@@ -26,4 +26,4 @@ AND notify
 
 ## Contributing
 
-See the [GitHub Repository](https://github.com/cxr-project/cxr) for more details.
+See the [GitHub Repository](https://github.com/shoya-129/cxr) for more details.

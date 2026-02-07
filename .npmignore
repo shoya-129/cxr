@@ -1,18 +1,27 @@
 
-# Source files to ignore in package
+# Source Control
 .git
 .gitignore
 .npmignore
 
-# Tests and Scripts
+# VS Code Extension
+vscode-extension/
+*.vsix
+
+# Editor Configs
+.vscode/
+.idea/
+*.swp
+
+# Testing & Dev
 test/
 simple_test.js
-example.js
+coverage/
+.test_output/
 
-# Configs
-eslint.config.js
-jest.config.js
-tsconfig.json
+# Logs
+*.log
+npm-debug.log*
 
-# Documentation
-# (Usually we keep README, but maybe ignore raw images or assets if any)
+# Node Modules (if accidentally committed)
+node_modules/

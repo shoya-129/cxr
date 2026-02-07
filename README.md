@@ -204,9 +204,25 @@ cxr.init({
 
 Returns an object with:
 - `folders`: Mapping of folder names to arrays of matched emails.
+
 - `actionsLog`: Array of action records per email.
 - `meta`: Execution metadata (engine name: "cxr").
 
+## VS Code Extension
+
+Included in this repository is a VS Code extension for `.cxr` files.
+
+**Features:**
+- Syntax Highlighting for Keywords, Actions, and Fields.
+- Autocomplete / IntelliSense for rule structures.
+- Snippets for quick rule creation.
+
+**Installation:**
+1. Download `cxr-language-support-0.0.1.vsix` from this repo.
+2. In VS Code, go to Extensions -> `...` -> `Install from VSIX...`
+3. Select the file.
+4. Enjoy full language support!
+
 ## License
 
-MIT
+ISC

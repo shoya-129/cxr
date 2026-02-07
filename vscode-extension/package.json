@@ -15,6 +15,10 @@
         "type": "git",
         "url": "https://github.com/shoya-129/cxr"
     },
+    "main": "./extension.js",
+    "activationEvents": [
+        "onLanguage:cxr"
+    ],
     "contributes": {
         "languages": [
             {
