@@ -217,11 +217,18 @@ Included in this repository is a VS Code extension for `.cxr` files.
 - Autocomplete / IntelliSense for rule structures.
 - Snippets for quick rule creation.
 
-**Installation:**
-1. Download `cxr-language-support-0.0.1.vsix` from this repo.
-2. In VS Code, go to Extensions -> `...` -> `Install from VSIX...`
-3. Select the file.
-4. Enjoy full language support!
+
+**Installation (Manual):**
+1.  **Download**: Get the `cxr-language-support-0.0.1.vsix` file from this repository.
+2.  **Open VS Code / Cursor**:
+    - Go to the **Extensions View** (Ctrl+Shift+X).
+    - Click the **... (More Actions)** menu (top right of the pane).
+    - Select **Install from VSIX...**.
+3.  **Select File**: Choose the `.vsix` file you downloaded.
+4.  **Restart**: Reload the window to activate full support.
+
+*Note: This extension is not yet published to the Visual Studio Marketplace so it will not appear in search results.*
+
 
 ## License
 
