@@ -7,12 +7,22 @@ export class Executor {
     }
 
 
+    static processedEmails = new Set();
+
+    static reset() {
+        this.processedEmails.clear();
+    }
+
     static execute(rulesContent, emails, schema = {}) {
         // 1. Lex & Parse
         const lexer = new Lexer(rulesContent);
         const tokens = lexer.tokenize();
         const parser = new Parser(tokens);
         const ast = parser.parse();
+
+        // Sort folders by Priority (descending) -> File Order (stable)
+        // Since JS sort is stable, we just sort by priority.
+        ast.folders.sort((a, b) => (b.priority || 0) - (a.priority || 0));
 
         // 2. Prepare Output Structures
         const folders = {
@@ -44,6 +54,11 @@ export class Executor {
             let emailActions = [];
             let matchedFolderName = null;
 
+            // Check if already processed
+            if (Executor.processedEmails.has(email.id)) {
+                continue;
+            }
+
             // Iterate Folders
             for (const folder of ast.folders) {
                 // Iterate Rules in Folder
@@ -74,6 +89,7 @@ export class Executor {
 
             // Log actions if matched
             if (matched) {
+                Executor.processedEmails.add(email.id);
                 actionsLog.push({
                     emailId: email.id,
                     folder: matchedFolderName,
@@ -124,11 +140,11 @@ export class Executor {
 
     static evaluatePredicate(node, email, schema) {
         const fieldName = schema[node.field] || node.field;
-        const value = (email[fieldName] || '').toString();
-        const target = node.value;
+        const value = (email[fieldName] || '').toString().toLowerCase();
 
         if (node.operator === 'contains') {
-            return value.toLowerCase().includes(target.toLowerCase());
+            const targets = Array.isArray(node.value) ? node.value : [node.value];
+            return targets.some(target => value.includes(target.toLowerCase()));
         }
         return false;
     }

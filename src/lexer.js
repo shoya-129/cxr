@@ -7,6 +7,7 @@ export const TokenType = {
     FOLDER: 'FOLDER',
     WHEN: 'WHEN',
     THEN: 'THEN',
+    PRIORITY: 'PRIORITY',
 
     // Logic
     AND: 'AND',
@@ -152,6 +153,7 @@ export class Lexer {
         // Mapping of keywords to TokenTypes
         const KEYWORDS = {
             'folder': TokenType.FOLDER,
+            'priority': TokenType.PRIORITY,
             'when': TokenType.WHEN,
             'then': TokenType.THEN,
             'and': TokenType.AND,

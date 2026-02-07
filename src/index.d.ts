@@ -136,6 +136,7 @@ declare const cxr: {
      * @returns {ExecutionResult} The classification result and action logs.
      */
     init: typeof init;
+    reset: () => void;
 };
 
 export default cxr;

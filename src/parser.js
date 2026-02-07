@@ -23,6 +23,15 @@ export class Parser {
         this.consume(TokenType.FOLDER);
         const name = this.parseTarget();
 
+        let priority = 0;
+        if (this.match(TokenType.PRIORITY)) {
+            const prioToken = this.consume(TokenType.IDENTIFIER, "Expected priority value");
+            priority = parseInt(prioToken.value, 10);
+            if (isNaN(priority)) {
+                throw this.error(`Invalid priority value: ${prioToken.value}`);
+            }
+        }
+
         const rules = [];
         while (this.peek().type === TokenType.WHEN) {
             rules.push(this.parseRule());
@@ -32,7 +41,7 @@ export class Parser {
             throw this.error(`Folder '${name}' must have at least one rule.`);
         }
 
-        return { type: 'Folder', name, rules };
+        return { type: 'Folder', name, rules, priority };
     }
 
     parseRule() {
@@ -100,12 +109,23 @@ export class Parser {
         const field = this.parseField();
 
         if (this.match(TokenType.CONTAINS)) {
-            const valueToken = this.consume(TokenType.STRING, "Expected string literal after 'contains'");
+            let val;
+            if (this.match(TokenType.LBRACKET)) {
+                const values = [];
+                do {
+                    const v = this.consume(TokenType.STRING, "Expected string in list").value;
+                    values.push(v);
+                } while (this.match(TokenType.COMMA));
+                this.consume(TokenType.RBRACKET, "Expected ']'");
+                val = values;
+            } else {
+                val = this.consume(TokenType.STRING, "Expected string literal or list after 'contains'").value;
+            }
             return {
                 type: 'Predicate',
                 field: field.value,
                 operator: 'contains',
-                value: valueToken.value
+                value: val
             };
         }
 

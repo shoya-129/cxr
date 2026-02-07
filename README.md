@@ -13,6 +13,48 @@ It parses a custom `.cxr` domain language and executes deterministically against
 - **Zero Dependencies**: Lightweight and fast.
 - **Flexible Loading**: Load rules from strings, files (`.cxr`), or combine multiple sources.
 
+## Rule Execution Model
+
+**Single-Execution Guarantee**:
+- Each email is evaluated once per run.
+- At most one rule may apply to an email.
+- Once a rule matches, the email is assigned to that folder and its actions are logged. No other rules are checked for that email.
+
+**State & Deduplication**:
+- The engine maintains a set of processed email IDs.
+- Re-running the engine without resetting state will **ignore** already-processed emails.
+- Use `cxr.reset()` to clear this state and re-process emails.
+
+## Rule Priority
+
+You can explicitly set the priority of a folder. Higher priority folders are evaluated first.
+
+```cxr
+Folder Important priority 100
+WHEN sender contains "boss" THEN move to Important
+
+Folder Work priority 50
+WHEN subject contains "meeting" THEN move to Work
+```
+
+- Default priority is 0.
+- If priorities are equal, file order is preserved.
+
+## List Syntax
+
+Conditions support lists for checking multiple values concisely.
+
+```cxr
+WHEN subject contains ["urgent", "asap", "alert"]
+THEN move to HighPriority
+
+WHEN sender IN ["github.com", "gitlab.com", "bitbucket.org"]
+THEN move to Dev
+```
+
+- `contains [a, b]`: Matches if the field contains *any* of the strings.
+- `IN [a, b]`: Matches if the field contains *any* of the strings (same behavior as contains for now).
+
 ## Installation
 
 ```bash

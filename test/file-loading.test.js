@@ -1,8 +1,12 @@
 
-import { test } from 'node:test';
+import { test, beforeEach } from 'node:test';
 import assert from 'node:assert';
 import path from 'node:path';
 import cxr from '../src/index.js';
+
+beforeEach(() => {
+    if (cxr.reset) cxr.reset();
+});
 
 test('Initialization with .cxr file path', (t) => {
     const rulePath = path.resolve('test/fixtures/external_rules.cxr');

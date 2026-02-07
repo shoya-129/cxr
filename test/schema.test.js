@@ -1,7 +1,11 @@
 
-import { test } from 'node:test';
+import { test, beforeEach } from 'node:test';
 import assert from 'node:assert';
 import cxr from '../src/index.js';
+
+beforeEach(() => {
+    if (cxr.reset) cxr.reset();
+});
 
 test('Custom Schema Mapping', (t) => {
     // Rule uses 'priority' and 'sender'

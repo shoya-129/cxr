@@ -50,6 +50,9 @@ const cxr = {
         } catch (error) {
             throw error;
         }
+    },
+    reset: function () {
+        Executor.reset();
     }
 };
 
