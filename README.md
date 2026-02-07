@@ -16,13 +16,13 @@ It parses a custom `.cxr` domain language and executes deterministically against
 ## Installation
 
 ```bash
-npm install cxr
+npm install @ezetgalaxy/cxr
 ```
 
 ## Usage
 
 ```javascript
-import cxr from "cxr";
+import cxr from "@ezetgalaxy/cxr";
 
 // 1. Prepare email objects
 const emails = [

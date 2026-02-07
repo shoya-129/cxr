@@ -1,5 +1,5 @@
 {
-  "name": "cxr",
+  "name": "@ezetgalaxy/cxr",
   "version": "1.1.0",
   "description": "CXR - Email Rule eXecutor. A safe, deterministic, and explainable rule engine for email filtering.",
   "type": "module",
